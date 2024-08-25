@@ -20,3 +20,42 @@ console.log(hasDuplicate(arr1));
 console.log(hasDuplicate(arr2));
 console.log(hasDuplicate(arr3));
 console.log(hasDuplicate(arr4));
+
+// Is Anagram
+function isAnagram(s, t) {
+    if(s.length != t.length) return false;
+    const countS = {};
+    const countT = {};
+    for(let i = 0; i < s.length; i++) {
+        countS[s[i]] = 1 + (countS[s[i]] || 0);
+        countT[t[i]] = 1 + (countT[t[i]] || 0);
+    }
+    for(let key in countS) {
+        if(countS[key] != countT[key]) return false;
+    }
+    return true;
+}
+
+// Is Anagram test cases
+// these 2 should return true
+let str1 = "hello";
+let str2 = "olleh";
+
+// these 2 should be false
+let str3 = "world";
+let str4 = "worlds";
+
+// these should be true
+let str5 = "";
+let str6 = "";
+
+// these should be false
+let str7 = "ways";
+let str8 = "sams";
+
+console.log(isAnagram(str1, str2));
+console.log(isAnagram(str3, str4));
+console.log(isAnagram(str5, str6));
+console.log(isAnagram(str7, str8));
+
+
