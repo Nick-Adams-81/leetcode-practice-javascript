@@ -1,5 +1,9 @@
 
 // Has Duplicate
+/***
+ * @param {number[]} nums
+ * @return {boolean}
+ */
 function hasDuplicate(nums) {
     if(nums.length == 0) return false;
     let set = new Set();
@@ -22,6 +26,11 @@ console.log(hasDuplicate(arr3));
 console.log(hasDuplicate(arr4));
 
 // Is Anagram
+/***
+ * @param {string} s
+ * @param {string} target
+ * @return {boolean}
+ */
 function isAnagram(s, t) {
     if(s.length != t.length) return false;
     const countS = {};
@@ -58,4 +67,27 @@ console.log(isAnagram(str3, str4));
 console.log(isAnagram(str5, str6));
 console.log(isAnagram(str7, str8));
 
+// Two Sum
+/***
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+function twoSum(nums, target) {
+    let map = new Map();
+    for(let i = 0; i < nums.length; i++) {
+        let comp = target - nums[i];
+        if(map.has(comp)) return [i, map.get(comp)];
+        map.set(nums[i], i);
+    }
+}
+
+// Test Cases for two sum
+let array1 = [4,5,6,7,8]; // target = 14 output should be [2,4]
+let array2 = [5,5] // taregt = 10 output should be [0,1];
+let array3 = [2,3,7,10]; // target = 9 output should be [0,2]
+
+console.log(twoSum(array1, 14));
+console.log(twoSum(array2, 10));
+console.log(twoSum(array3, 9));
 
