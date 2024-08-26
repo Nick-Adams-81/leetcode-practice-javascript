@@ -91,3 +91,28 @@ console.log(twoSum(array1, 14));
 console.log(twoSum(array2, 10));
 console.log(twoSum(array3, 9));
 
+// Group Anagrams
+/**
+ * @param {string[]} strs
+ * @return {string[][]}
+ */
+function groupAnagrams(strs) {
+    const result = {};
+    for(let str of strs) {
+        let key = str.split('').sort().join('');
+        if(result[key]) {
+            result[key].push(str);
+        } else {
+            result[key] = [str];
+        }
+    }
+    return Object.values(result);
+}
+
+// Group Anagrams test cases 
+let input1 = ["act", "post", "tops", "cat", "stop", "hat"] // output should be [[hat], [act, cat], [stop, pots, tops]]
+let input2 = ["x"] // sould return [[x]]
+console.log(groupAnagrams(input1));
+console.log(groupAnagrams(input2));
+
+
